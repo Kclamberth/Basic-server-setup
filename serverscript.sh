@@ -47,7 +47,7 @@ sudo ufw allow from 100.64.0.0/10 to any port 53 proto tcp comment "DNS TCP VPN"
 e15=$?
 
 echo "Starting firewall..."
-sudo ufw enable -y
+sudo ufw enable
 e6=$?
 
 echo " "
