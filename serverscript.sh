@@ -47,7 +47,7 @@ sudo ufw allow from 100.64.0.0/10 to any port 53 proto tcp comment "DNS TCP VPN"
 e15=$?
 
 echo "Starting firewall..."
-sudo ufw enable
+sudo ufw enable -y
 e6=$?
 
 echo " "
@@ -61,7 +61,7 @@ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 e8=$?
 
 echo "Modifying fail2ban jail file..." 
-wget -qO /etc/fail2ban/jail.local "https://raw.githubusercontent.com/Kclamberth/security-script/main/jail.local"  
+sudo wget -qO /etc/fail2ban/jail.local "https://raw.githubusercontent.com/Kclamberth/security-script/main/jail.local"  
 e9=$?
 
 echo "Starting fail2ban..."
