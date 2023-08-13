@@ -50,7 +50,7 @@ e7=$?
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 e8=$?
 
-sleep 2
+sleep 1
 
 echo "Modifying fail2ban jail file..." 
 wget -qO /etc/fail2ban/jail.local "https://raw.githubusercontent.com/Kclamberth/Basic-server-setup/main/jail.local"  
