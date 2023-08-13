@@ -1,4 +1,4 @@
-# Basic personal server setup
+# Basic server setup
 Basic script to automate some initial server settings. 
 This is intended for personal use only.
 
