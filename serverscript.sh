@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Welcome Message
-echo "Welcome to KCL security setup."
+echo "Welcome to KCL server setup."
 echo "HTOP, UFW, & Fail2ban will be installed and set up on this system."
 echo "This script is intended for personal use only."
 
