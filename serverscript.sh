@@ -50,7 +50,7 @@ sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 e8=$?
 
 echo "Modifying fail2ban jail file..." 
-wget -qO /etc/fail2ban/jail.local "https://raw.githubusercontent.com/Kclamberth/security-script/main/jail.local"  
+wget -qO /etc/fail2ban/jail.local "https://raw.githubusercontent.com/Kclamberth/Basic-server-setup/main/jail.local"  
 e9=$?
 
 echo "Starting fail2ban..."
