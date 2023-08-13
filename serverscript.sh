@@ -35,12 +35,23 @@ sudo ufw allow from 172.16.0.0/24 to any port 22 comment "SSH LAN"
 e4=$?
 sudo ufw allow from 100.64.0.0/10 to any port 22 comment "SSH VPN"
 e5=$?
+sudo ufw allow bootps
+e11=$?
+sudo ufw allow from 172.16.0.0/24 to any port 53 proto udp comment "DNS UDP"
+e12=$?
+sudo ufw allow from 172.16.0.0/24 to any port 53 proto tcp comment "DNS TCP"
+e13=$?
+sudo ufw allow from 100.64.0.0/10 to any port 53 proto udp comment "DNS UDP VPN"
+e14=$?
+sudo ufw allow from 100.64.0.0/10 to any port 53 proto tcp comment "DNS TCP VPN"
+e15=$?
 
 echo "Starting firewall..."
 sudo ufw enable
 e6=$?
 
 echo " "
+sleep 3
 
 #Modify fail2ban
 echo "Creating fail2ban files..."
@@ -73,7 +84,7 @@ elif [ $e3 -ne 0 ]
 then
     echo "$app3 failed to install." 
 
-elif [ $e4 -ne 0 ] || [ $e5 -ne 0 ]
+elif [ $e4 -ne 0 ] || [ $e5 -ne 0 ] || [ $e11 -ne 0 ] || [ $e12 -ne 0 ] || [ $e13 -ne 0 ] || [ $e14 -ne 0 ] || [ $e15 -ne 0 ] 
 then
     echo "Firewall rules incorrectly updated." 
     echo "Check with 'sudo ufw status'."
