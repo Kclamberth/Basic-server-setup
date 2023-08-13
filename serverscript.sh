@@ -41,7 +41,7 @@ sudo ufw enable
 e6=$?
 
 echo " "
-sleep 1
+sleep 3
 
 #Modify fail2ban
 echo "Creating fail2ban files..."
@@ -49,6 +49,8 @@ sudo cp /etc/fail2ban/fail2ban.conf /etc/fail2ban/fail2ban.local
 e7=$?
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 e8=$?
+
+sleep 1
 
 echo "Modifying fail2ban jail file..." 
 wget -qO /etc/fail2ban/jail.local "https://raw.githubusercontent.com/Kclamberth/Basic-server-setup/main/jail.local"  
