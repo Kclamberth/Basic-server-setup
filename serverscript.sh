@@ -10,7 +10,7 @@ sleep 3
 
 #Update system
 echo "Updating system..."
-sudo apt update && sudo apt upgrade -y >> kcl_sec.log
+sudo apt update && sudo apt upgrade -y >> /var/log/kcl_sec.log
 
 #Application list
 app1=ufw
@@ -19,11 +19,11 @@ app3=htop
 
 #Install applications
 echo "Installing $app1,$app2, & $app3..."
-sudo apt-get install -y $app1 >> kcl_sec.log 
+sudo apt-get install -y $app1 >> /var/log/kcl_sec.log
 e1=$?
-sudo apt-get install -y $app2 >> kcl_sec.log
+sudo apt-get install -y $app2 >> /var/log/kcl_sec.log
 e2=$?
-sudo apt-get install -y $app3 >> kcl_sec.log
+sudo apt-get install -y $app3 >> /var/log/kcl_sec.log
 e3=$?
 
 echo " "
