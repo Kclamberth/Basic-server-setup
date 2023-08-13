@@ -41,6 +41,7 @@ sudo ufw enable
 e6=$?
 
 echo " "
+sleep 1
 
 #Modify fail2ban
 echo "Creating fail2ban files..."
