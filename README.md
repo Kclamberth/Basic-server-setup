@@ -6,4 +6,4 @@ The script installs HTOP, UFW, & Fail2ban and creates a ssh allow rule in the fi
 
 It also changes the fail2ban bantime to 120mins, range to 10 mins, and max retries to 2.
 
-If you use this you will have to ensure you LAN is set up in a similar way. 
+If you use this you will have to ensure your LAN is set up in a similar way. 
