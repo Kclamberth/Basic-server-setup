@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Welcome Message
-echo "Welcome to KCL server setup."
+echo "Welcome to KCL security setup."
 echo "HTOP, UFW, & Fail2ban will be installed and set up on this system."
 echo "This script is intended for personal use only."
 
@@ -10,7 +10,7 @@ sleep 3
 
 #Update system
 echo "Updating system..."
-sudo apt-get update && sudo apt-get upgrade -y >> /var/log/kcl_sec.log
+sudo apt update && sudo apt upgrade -y >> kcl_sec.log
 
 #Application list
 app1=ufw
@@ -19,11 +19,11 @@ app3=htop
 
 #Install applications
 echo "Installing $app1,$app2, & $app3..."
-sudo apt-get install -y $app1 >> /var/log/kcl_sec.log
+sudo apt-get install -y $app1 >> kcl_sec.log 
 e1=$?
-sudo apt-get install -y $app2 >> /var/log/kcl_sec.log
+sudo apt-get install -y $app2 >> kcl_sec.log
 e2=$?
-sudo apt-get install -y $app3 >> /var/log/kcl_sec.log
+sudo apt-get install -y $app3 >> kcl_sec.log
 e3=$?
 
 echo " "
@@ -41,7 +41,6 @@ sudo ufw enable
 e6=$?
 
 echo " "
-sleep 3
 
 #Modify fail2ban
 echo "Creating fail2ban files..."
@@ -50,10 +49,8 @@ e7=$?
 sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 e8=$?
 
-sleep 1
-
 echo "Modifying fail2ban jail file..." 
-wget -qO /etc/fail2ban/jail.local "https://raw.githubusercontent.com/Kclamberth/Basic-server-setup/main/jail.local"  
+wget -qO /etc/fail2ban/jail.local "https://raw.githubusercontent.com/Kclamberth/security-script/main/jail.local"  
 e9=$?
 
 echo "Starting fail2ban..."
@@ -98,4 +95,4 @@ then
 else
     echo "Successfully installed HTOP, Uncomplicated Fire Wall(UFW) and Fail2ban." 
     echo "Verify via 'sudo ufw status' and 'sudo systemctl status fail2ban'."
-
+fi
