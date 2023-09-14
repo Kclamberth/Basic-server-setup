@@ -10,7 +10,7 @@ sleep 3
 
 #Update system
 echo "Updating system..."
-sudo apt-get update && sudo apt-get upgrade -y >> kcl_sec.log 2>&1
+sudo apt-get update && sudo apt-get upgrade -y 
 
 #Application list
 app1=ufw
