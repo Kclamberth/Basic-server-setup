@@ -2,7 +2,7 @@
 
 #Welcome Message
 echo "Welcome to KCL security setup."
-echo "HTOP, UFW, & Fail2ban will be installed and set up on this system."
+echo "UFW, & Fail2ban will be installed and set up on this system."
 echo "This script is intended for personal use only."
 
 echo " "
@@ -10,21 +10,18 @@ sleep 3
 
 #Update system
 echo "Updating system..."
-sudo apt-get update && sudo apt-get upgrade -y >> kcl_sec.log
+sudo apt-get update && sudo apt-get upgrade -y >> kcl_sec.log 2>&1
 
 #Application list
 app1=ufw
 app2=fail2ban
-app3=htop
 
 #Install applications
 echo "Installing $app1,$app2, & $app3..."
-sudo apt-get install -y $app1 >> kcl_sec.log 
+sudo apt-get install -y $app1 >> kcl_sec.log 2>&1
 e1=$?
-sudo apt-get install -y $app2 >> kcl_sec.log
+sudo apt-get install -y $app2 >> kcl_sec.log 2>&1
 e2=$?
-sudo apt-get install -y $app3 >> kcl_sec.log
-e3=$?
 
 echo " "
 sleep 3
@@ -80,9 +77,6 @@ elif [ $e2 -ne 0 ]
 then
     echo "$app2 failed to install."
 
-elif [ $e3 -ne 0 ]
-then
-    echo "$app3 failed to install." 
 
 elif [ $e4 -ne 0 ] || [ $e5 -ne 0 ] || [ $e11 -ne 0 ] || [ $e12 -ne 0 ] || [ $e13 -ne 0 ] || [ $e14 -ne 0 ] || [ $e15 -ne 0 ] 
 then
@@ -104,6 +98,6 @@ then
 
 #Successful message
 else
-    echo "Successfully installed HTOP, Uncomplicated Fire Wall(UFW) and Fail2ban." 
+    echo "Successfully installed $app1 & $app2." 
     echo "Verify via 'sudo ufw status' and 'sudo systemctl status fail2ban'."
 fi
