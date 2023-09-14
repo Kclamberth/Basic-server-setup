@@ -10,14 +10,15 @@ sleep 3
 
 #Update system
 echo "Updating system..."
-sudo apt-get update && sudo apt-get upgrade -y 
+sudo apt-get update >> kcl_sec.log 2>&1
+sudo apt-get upgrade -y >> kcl_sec.log 2>&1
 
 #Application list
 app1=ufw
 app2=fail2ban
 
 #Install applications
-echo "Installing $app1,$app2, & $app3..."
+echo "Installing $app1 & $app2..."
 sudo apt-get install -y $app1 >> kcl_sec.log 2>&1
 e1=$?
 sudo apt-get install -y $app2 >> kcl_sec.log 2>&1
@@ -87,7 +88,7 @@ elif [ $e6 -ne 0 ]
 then 
     echo "Firewall failed to start."
 
-elif [ $e7 -ne 0 ] || [ $e8 -ne 0]
+elif [ $e7 -ne 0 ] || [ $e8 -ne 0 ]
 then
     echo "/etc/fail2ban/jail.local or /etc/fail2ban/fail2ban.local did not copy correctly."
     echo "Check the /etc/fail2ban directory." 
